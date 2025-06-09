@@ -16,7 +16,7 @@ make INSTALL_TOP=$HOME/opt/lua@5.1 install
 mkdir -p ~/.local/bin
 ln -s ~/opt/lua@5.1/bin/lua ~/.local/bin/lua5.1
 export PATH=~/.local/bin/:$PATH
-cd .. && rm -rf lua-5.1.5
+cd .. && rm -rf lua-5.1.5*
 
 # install mermaid cli for diagrams
 npm install -g @mermaid-js/mermaid-cli
