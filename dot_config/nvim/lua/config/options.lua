@@ -6,5 +6,6 @@ local opt = vim.opt
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.scrolloff = 8
 opt.colorcolumn = "80,100"
-vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = "Red", bg = "Red" })
 opt.spell = true
+-- sync clipboard between nvim and os
+opt.clipboard = "unnamedplus"
