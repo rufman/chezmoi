@@ -13,12 +13,13 @@ cask {{ . | quote }}
 {{ end -}}
 EOF
 {{ range .packages.universal.fisher -}}
-fish -c 'fisher install {{ . | quote }}'
+fish -c 'fisher update {{ . | quote }}'
 {{ end -}}
 {{ end -}}
 
 
 {{ if .isWorkComputer -}}
+brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.work.taps -}}
 tap {{ . | quote | replace " " "\", \"" }}
 {{ end -}}
@@ -30,6 +31,6 @@ cask {{ . | quote }}
 {{ end -}}
 EOF
 {{ range .packages.work.fisher -}}
-fish -c 'fisher install {{ . | quote }}'
+fish -c 'fisher update {{ . | quote }}'
 {{ end -}}
 {{ end -}}

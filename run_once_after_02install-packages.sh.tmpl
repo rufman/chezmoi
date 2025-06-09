@@ -1,0 +1,33 @@
+#!/bin/bash
+
+ # Finish installing rust
+rustup default stable
+
+# install crates
+/usr/local/opt/rustup/bin/cargo install tmux-sessionizer
+
+# Install lua5.1 for nvim
+wget https://www.lua.org/ftp/lua-5.1.5.tar.gz
+tar xzf lua-5.1.5.tar.gz
+cd lua-5.1.5
+make macosx
+mkdir ~/opt
+make INSTALL_TOP=$HOME/opt/lua@5.1 install
+mkdir -p ~/.local/bin
+ln -s ~/opt/lua@5.1/bin/lua ~/.local/bin/lua5.1
+export PATH=~/.local/bin/:$PATH
+cd .. && rm -rf lua-5.1.5
+
+# install mermaid cli for diagrams
+npm install -g @mermaid-js/mermaid-cli
+
+{{ range .packages.universal.fisher -}}
+fish -c 'fisher install {{ . | quote }}'
+{{ end -}}
+
+{{ if .isWorkComputer -}}
+{{ range .packages.work.fisher -}}
+fish -c 'fisher install {{ . | quote }}'
+{{ end -}}
+{{ end -}}
+
