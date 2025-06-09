@@ -1,0 +1,60 @@
+# Set vi as command mode
+fish_vi_key_bindings
+function hybrid_bindings --description "Vi-style bindings that inherit emacs-style bindings in all modes"
+    for mode in default insert visual
+        fish_default_key_bindings -M $mode
+    end
+    fish_vi_key_bindings --no-erase
+end
+set -g fish_key_bindings hybrid_bindings
+
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+    # Start tmux and always create a session
+    # don't nest inside another tmux
+    if not set -q TMUX
+        # Adapted from https://unix.stackexchange.com/a/176885/347104
+        # Create session 'main' or attach to 'main' if already exists.
+        tmux new-session -A -s main
+    end
+end
+
+# Add lua 5.1 to the path
+fish_add_path $HOME/.local/bin
+
+# Add to PATH env
+fish_add_path /usr/local/opt/rustup/bin
+fish_add_path $HOME/.pub-cache/bin
+
+# Add the $GOPATH/bin to path
+set GOPATH $HOME/go
+fish_add_path $GOPATH/bin
+fish_add_path /usr/local/go/bin
+
+# Add Cargo to the path
+fish_add_path $HOME/.cargo/bin
+
+# Config n
+set -x N_PREFIX $HOME/.n
+
+# # Add aliases
+source $HOME/.config/fish/functions/aliases.fish
+{{ if .isWorkComputer -}}
+source $HOME/.config/fish/functions/work-aliases.fish
+{{ end -}}
+source $HOME/.config/fish/functions/git-aliases.fish
+
+# # Add functions
+source $HOME/.config/fish/functions/functions.fish
+
+starship init fish | source
+
+set -x N_PREFIX "$HOME/.n"
+contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PREFIX/bin" # Added by n-install (see http://git.io/n-install-repo).
+
+# pnpm
+set -gx PNPM_HOME "/home/stephane/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
