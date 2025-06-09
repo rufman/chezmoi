@@ -1,5 +1,7 @@
-{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $isWorkComputer := promptBoolOnce . "isWorkComputer" "Is this your work computer" -}}
+{{- $gitEmail := promptStringOnce . "email" "Email address for git" -}}
 
 [data]
-    email = {{ $email | quote }}
+    isWorkComputer = {{ $isWorkComputer }}
+    gitEmail = {{ $gitEmail }}
 

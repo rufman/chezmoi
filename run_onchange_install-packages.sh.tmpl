@@ -1,0 +1,35 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+brew bundle --file=/dev/stdin <<EOF
+{{ range .packages.universal.taps -}}
+tap {{ . | quote | replace " " "\", \"" }}
+{{ end -}}
+{{ range .packages.universal.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.universal.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+{{ range .packages.universal.fisher -}}
+fish -c 'fisher install {{ . | quote }}'
+{{ end -}}
+{{ end -}}
+
+
+{{ if .isWorkComputer -}}
+{{ range .packages.work.taps -}}
+tap {{ . | quote | replace " " "\", \"" }}
+{{ end -}}
+{{ range .packages.work.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.work.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+{{ range .packages.work.fisher -}}
+fish -c 'fisher install {{ . | quote }}'
+{{ end -}}
+{{ end -}}

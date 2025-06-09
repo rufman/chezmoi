@@ -1,0 +1,54 @@
+packages:
+  universal:
+    taps:
+      - jesseduffield/lazygit
+    brews:
+      - age # Simple, modern, secure file encryption
+      - chezmoi # Manage your dotfiles across multiple diverse machines, securely
+      - cmake # Cross-platform make
+      - coreutils # GNU File, Shell, and Text utilities
+      - dive # Tool for exploring each layer in a docker image
+      - eza # Modern, maintained replacement for ls
+      - fd # Simple, fast and user-friendly alternative to find
+      - findutils # Collection of GNU find, xargs, and locate
+      - fish # User-friendly command-line shell for UNIX-like operating systems
+      - fzf # Command-line fuzzy finder written in Go
+      - ghostscript # Interpreter for PostScript and PDF
+      - git # Distributed revision control system
+      - go # Open source programming language to build simple/reliable/efficient software
+      - imagemagick # Tools and libraries to manipulate images in many formats
+      - jq # Lightweight and flexible command-line JSON processor
+      - luarocks # Package manager for the Lua programming language
+      - n # Node version management
+      - neovim # Ambitious Vim-fork focused on extensibility and agility
+      - node # Platform built on V8 to build network applications
+      - pkgconf # Package compiler and linker metadata toolkit
+      - protobuf # Protocol buffers (Google's data interchange format)
+      - ripgrep # Search tool like grep and The Silver Searcher
+      - rustup # Rust toolchain installer
+      - starship # Cross-shell prompt for astronauts
+      - tectonic # Modernized, complete, self-contained TeX/LaTeX engine
+      - tmux # Terminal multiplexer
+      - wget # Internet file retriever
+      - jesseduffield/lazygit/lazygit # A simple terminal UI for git commands, written in Go
+    casks:
+      - firefox # Web browser
+      - font-droid-sans-mono-nerd-font
+      - ghostty # Terminal emulator that uses platform-native UI and GPU acceleration
+      - google-chrome # Web browser
+      - spotify # Music streaming service
+      - the-unarchiver # Unpacks archive files
+      - whatsapp # Native desktop client for WhatsApp
+    fisher:
+      - catppuccin/fish
+  home: 
+    brews: []
+    casks:
+      - bitwarden # Desktop password and login vault
+    fisher: []
+  work:
+    brews: []
+    casks:
+      - 1password # password manager
+      - zoom # Zoom meeting
+    fisher: []
