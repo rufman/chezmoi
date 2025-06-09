@@ -33,4 +33,19 @@ EOF
 {{ range .packages.work.fisher -}}
 fish -c 'fisher update {{ . | quote }}'
 {{ end -}}
+{{ else -}}
+brew bundle --file=/dev/stdin <<EOF
+{{ range .packages.home.taps -}}
+tap {{ . | quote | replace " " "\", \"" }}
+{{ end -}}
+{{ range .packages.home.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.home.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+{{ range .packages.home.fisher -}}
+fish -c 'fisher update {{ . | quote }}'
+{{ end -}}
 {{ end -}}

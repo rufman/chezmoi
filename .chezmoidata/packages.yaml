@@ -5,9 +5,9 @@ packages:
     brews:
       - age # Simple, modern, secure file encryption
       - chezmoi # Manage your dotfiles across multiple diverse machines, securely
+      - curl
       - cmake # Cross-platform make
       - coreutils # GNU File, Shell, and Text utilities
-      - dive # Tool for exploring each layer in a docker image
       - eza # Modern, maintained replacement for ls
       - fd # Simple, fast and user-friendly alternative to find
       - findutils # Collection of GNU find, xargs, and locate
@@ -42,12 +42,16 @@ packages:
     fisher:
       - catppuccin/fish
   home: 
+    taps: []
     brews: []
     casks:
       - bitwarden # Desktop password and login vault
     fisher: []
   work:
-    brews: []
+    brews: 
+      - docker 
+      - dive # Tool for exploring each layer in a docker image
+      - kubernetes-cli
     casks:
       - 1password # password manager
       - zoom # Zoom meeting
