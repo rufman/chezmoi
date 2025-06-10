@@ -9,6 +9,7 @@ end
 set -g fish_key_bindings hybrid_bindings
 
 if status is-interactive
+    atuin init fish | source
     # Commands to run in interactive sessions can go here
     # Start tmux and always create a session
     # don't nest inside another tmux

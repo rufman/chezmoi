@@ -3,6 +3,7 @@ packages:
     taps:
       - jesseduffield/lazygit
     brews:
+      - atuin # shell sync
       - age # Simple, modern, secure file encryption
       - chezmoi # Manage your dotfiles across multiple diverse machines, securely
       - curl
