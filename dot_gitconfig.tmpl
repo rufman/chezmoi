@@ -7,7 +7,7 @@
 	name = Stephane Rufer
 	email = {{ .gitEmail | quote }} 
 	{{ if .isWorkComputer -}}
-	signkey = 483E5927882F20F4
+		signkey = 483E5927882F20F4
 	{{ end -}}
 
 [mergetool "meld"]
@@ -26,7 +26,7 @@
 	tool = meld
 [commit]
 	{{ if .isWorkComputer -}}
-	gpgSign = true
+		gpgSign = true
 	{{ end -}}
 
 [init]
