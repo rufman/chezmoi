@@ -8,7 +8,8 @@
 	email = {{ .gitEmail | quote }} 
 	{{ if .isWorkComputer -}}
 		signkey = 483E5927882F20F4
-	{{ end -}}\n
+
+	{{ end -}}
 [mergetool "meld"]
 	cmd = meld $LOCAL $BASE $REMOTE -o $MERGED --auto-merge
 	trustExitCode = true
@@ -26,7 +27,7 @@
 {{ if .isWorkComputer -}}
 [commit]
 	gpgSign = true
-{{ end -}}\n
+{{ end -}}
 
 [init]
 	defaultBranch = trunk
