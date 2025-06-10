@@ -3,13 +3,17 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+{{ if .isWorkComputer -}}
 [user]
 	name = Stephane Rufer
 	email = {{ .gitEmail | quote }} 
-	{{ if .isWorkComputer -}}
 	signkey = 483E5927882F20F4
-
-	{{ end -}}
+{{ else -}}
+[user]
+	name = Stephane Rufer
+	email = {{ .gitEmail | quote }} 
+{{ end -}}
 
 [mergetool "meld"]
 	cmd = meld $LOCAL $BASE $REMOTE -o $MERGED --auto-merge
