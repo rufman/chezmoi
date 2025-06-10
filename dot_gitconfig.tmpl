@@ -9,6 +9,7 @@
 	{{ if .isWorkComputer -}}
 	signkey = 483E5927882F20F4
 	{{ end -}}
+
 [mergetool "meld"]
 	cmd = meld $LOCAL $BASE $REMOTE -o $MERGED --auto-merge
 	trustExitCode = true
@@ -24,9 +25,10 @@
 [diff]
 	tool = meld
 [commit]
-	{{ if .isWorkComputer -}}
+{{ if .isWorkComputer -}}
 	gpgSign = true
-	{{ end -}}
+{{ end -}}
+
 [init]
 	defaultBranch = trunk
 [core]
