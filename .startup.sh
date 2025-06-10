@@ -20,5 +20,5 @@ else
 fi
 
 brew install chezmoi
-chezmoi init
+chezmoi init rufman/chezmoi
 chezmoi apply
