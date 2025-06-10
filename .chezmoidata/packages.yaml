@@ -49,6 +49,7 @@ packages:
       - bitwarden # Desktop password and login vault
     fisher: []
   work:
+    taps: []
     brews: 
       - docker 
       - dive # Tool for exploring each layer in a docker image
