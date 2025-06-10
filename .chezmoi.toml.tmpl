@@ -2,6 +2,6 @@
 {{- $gitEmail := promptStringOnce . "email" "Email address for git" -}}
 
 [data]
-    isWorkComputer = {{ $isWorkComputer }}
-    gitEmail = {{ $gitEmail }}
+    isWorkComputer = {{ $isWorkComputer | quote }}
+    gitEmail = {{ $gitEmail | quote }}
 
