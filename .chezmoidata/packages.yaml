@@ -43,7 +43,8 @@ packages:
       - catppuccin/fish
   home: 
     taps: []
-    brews: []
+    brews:
+      - bitwarden-cli
     casks:
       - bitwarden # Desktop password and login vault
     fisher: []
