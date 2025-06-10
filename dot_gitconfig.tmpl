@@ -10,6 +10,7 @@
 		signkey = 483E5927882F20F4
 	{{ end -}}
 
+
 [mergetool "meld"]
 	cmd = meld $LOCAL $BASE $REMOTE -o $MERGED --auto-merge
 	trustExitCode = true
@@ -28,6 +29,7 @@
 	{{ if .isWorkComputer -}}
 		gpgSign = true
 	{{ end -}}
+
 
 [init]
 	defaultBranch = trunk
