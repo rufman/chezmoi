@@ -1,6 +1,9 @@
 {{- $isWorkComputer := promptBoolOnce . "isWorkComputer" "Is this your work computer" -}}
 {{- $gitEmail := promptStringOnce . "email" "Email address for git" -}}
 
+[edit]
+  command = "nvim"
+
 [data]
     isWorkComputer = {{ $isWorkComputer | quote }}
     gitEmail = {{ $gitEmail | quote }}
