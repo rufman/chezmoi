@@ -20,6 +20,12 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
+# chezmoi
+alias che="chezmoi edit"
+alias cha="chezmoi apply"
+alias chu="chezmoi update"
+alias cht="chezmoi add --template"
+
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
 
@@ -42,21 +48,4 @@ alias grbi="git rebase -i"
 
 # Other
 alias g="grep"
-alias r="rush"
-alias ru="rush update"
-alias rr="rush rebuild"
-alias ruf="rush update --full"
-alias rx="rushx"
-alias j="npx just"
-alias mbs="melos bs"
-alias mc="melos analyze && melos format:fix:dry-run && melos test"
-alias dt="dart test"
-alias gupbs="gup && melos bs"
-
-# Dart
-alias fmt_cov_lib="format_coverage --check-ignore --package=. --report-on=lib --lcov -o ./coverage/lcov.info -i ./coverage"
 alias htmlcov="genhtml -o ./coverage/report ./coverage/lcov.info"
-alias dtestcov="dart test --coverage=./coverage && fmt_cov_lib && htmlcov"
-alias dart_fmt="dart format --set-exit-if-changed ."
-alias f=".fvm/flutter_sdk/bin/flutter"
-alias d="fvm dart"
