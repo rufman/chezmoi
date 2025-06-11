@@ -8,6 +8,10 @@ function hybrid_bindings --description "Vi-style bindings that inherit emacs-sty
 end
 set -g fish_key_bindings hybrid_bindings
 
+{{ if .isWorkComputer -}}
+fish_add_path /opt/homebrew
+{{ end -}}
+
 if status is-interactive
     atuin init fish | source
     # Commands to run in interactive sessions can go here
