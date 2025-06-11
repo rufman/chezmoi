@@ -44,5 +44,5 @@
 
 font-family = "DroidSansM Nerd Font Mono"
 font-size = 12
-theme = catppuccin-macchiato
+theme = catppuccin-mocha
 command = /usr/local/bin/fish --login --interactive
